@@ -1,8 +1,8 @@
 package ca.etsmtl.log121.lab3.de;
 
 public class De implements Comparable<De> {
-	private int nbDeFaces;
-	private int valeur;
+	private Object[] nbDeFaces;
+	private Object valeur;
 
 	@Override
 	public int compareTo(De autreDe) {
@@ -11,15 +11,16 @@ public class De implements Comparable<De> {
 	}
 
 	public De() {
-		this.nbDeFaces = 6;
+		Integer[] nbDeFacesDefault = {1,2,3,4,5,6};
+		this.nbDeFaces = nbDeFacesDefault;
 	}
 
-	public De(int nbDeFacesRecu) {
+	public De(Object[] nbDeFacesRecu) {
 		this.nbDeFaces = nbDeFacesRecu;
 		
 	}
 
-	public De(int nbDeFacesRecu, int valeurRecu) {
+	public De(Object[] nbDeFacesRecu, int valeurRecu) {
 		this(nbDeFacesRecu);
 		this.valeur = valeurRecu;
 	}
@@ -28,7 +29,7 @@ public class De implements Comparable<De> {
 		this.valeur = (int) Math.floor((Math.random() * 6) + 1);
 	}
 
-	public int getValeur() {
+	public Object getValeur() {
 		return valeur;
 	}
 
@@ -36,11 +37,11 @@ public class De implements Comparable<De> {
 		this.valeur = valeurRecu;
 	}
 
-	public int getnbDeFaces() {
+	public Object[] getnbDeFaces() {
 		return nbDeFaces;
 	}
 
-	public void setnbDeFaces(int nbDeFacesRecu) {
+	public void setnbDeFaces(Object[] nbDeFacesRecu) {
 		this.nbDeFaces = nbDeFacesRecu;
 	}
 
