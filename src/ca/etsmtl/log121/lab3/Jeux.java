@@ -6,25 +6,25 @@ import ca.etsmtl.log121.lab3.de.*;
 public class Jeux {
 
 	private final IStrategie typeDeJeux;
-	private final CollectionDe des;
-	private final CollectionJoueur joueurs;
+	private final CollectionDes des;
+	private final CollectionJoueurs joueurs;
 
 	private int nbTours;
 	private int tourCourant;
 
 	public Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
-		des = new CollectionDe();
-		joueurs = new CollectionJoueur();
+		des = new CollectionDes();
+		joueurs = new CollectionJoueurs();
 		tourCourant = 0;
 		typeDeJeux.initialiserJeux(this);
 	}
 
-	public CollectionDe getDes() {
+	public CollectionDes getDes() {
 		return des;
 	}
 
-	public CollectionJoueur getJoueurs() {
+	public CollectionJoueurs getJoueurs() {
 		return joueurs;
 	}
 
