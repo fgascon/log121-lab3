@@ -5,7 +5,7 @@ import ca.etsmtl.log121.lab3.Iterable;
 public class CollectionDe implements Iterable<De> {
 
 	@Override
-	public IterateurDe creerIterateur() {
+	public IterateurDes creerIterateur() {
 		// TODO Auto-generated method stub
 		return null;
 	}
