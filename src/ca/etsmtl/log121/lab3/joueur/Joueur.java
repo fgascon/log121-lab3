@@ -4,9 +4,10 @@ public class Joueur implements Comparable<Joueur> {
 	
 	private String nom;
 	private int points;
+	private int[] pointsTours;
 	
 	public Joueur(){
-		this.nom = ("Joueur" + String.valueOf(Math.random() ));
+		this.nom = ("Joueur" + String.valueOf(Math.floor(Math.random()) ));
 		this.points = 0;
 	}
 	
@@ -29,6 +30,14 @@ public class Joueur implements Comparable<Joueur> {
 	
 	public String getNom(){
 		return this.nom;
+	}
+	
+	public void setPointsTours(int unTour, int desPoints){
+		this.pointsTours[unTour] = desPoints;
+	}
+	
+	public int getPointsTours(int unTour){
+		return this.pointsTours[unTour];
 	}
 
 	@Override
