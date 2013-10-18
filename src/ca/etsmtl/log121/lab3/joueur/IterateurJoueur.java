@@ -4,16 +4,22 @@ import ca.etsmtl.log121.lab3.Iterateur;
 
 public class IterateurJoueur implements Iterateur<Joueur> {
 
+	private final CollectionJoueurs collection;
+	private int courant;
+	
+	public IterateurJoueur(CollectionJoueurs collection) {
+		this.collection = collection;
+		courant = 0;
+	}
+	
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		return courant < collection.taille();
 	}
 
 	@Override
 	public Joueur getNext() {
-		// TODO Auto-generated method stub
-		return null;
+		return collection.obtenirJoueur(courant++);
 	}
 
 }

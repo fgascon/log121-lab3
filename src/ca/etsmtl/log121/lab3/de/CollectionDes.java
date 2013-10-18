@@ -15,11 +15,18 @@ public class CollectionDes implements Iterable<De> {
 	public void ajouterDe(De de) {
 		list.add(de);
 	}
+	
+	public int taille() {
+		return list.size();
+	}
+	
+	public De obtenirDe(int index) {
+		return list.get(index);
+	}
 
 	@Override
 	public IterateurDes creerIterateur() {
-		// TODO Auto-generated method stub
-		return null;
+		return new IterateurDes(this);
 	}
 
 }

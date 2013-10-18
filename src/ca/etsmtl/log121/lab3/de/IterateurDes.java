@@ -4,16 +4,22 @@ import ca.etsmtl.log121.lab3.Iterateur;
 
 public class IterateurDes implements Iterateur<De> {
 
+	private final CollectionDes collection;
+	private int courant;
+
+	public IterateurDes(CollectionDes collection) {
+		this.collection = collection;
+		courant = 0;
+	}
+
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		return courant < collection.taille();
 	}
 
 	@Override
 	public De getNext() {
-		// TODO Auto-generated method stub
-		return null;
+		return collection.obtenirDe(courant++);
 	}
 	
 }

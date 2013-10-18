@@ -15,10 +15,17 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 	public void ajouterJoueur(Joueur joueur) {
 		list.add(joueur);
 	}
+	
+	public int taille() {
+		return list.size();
+	}
+	
+	public Joueur obtenirJoueur(int index) {
+		return list.get(index);
+	}
 
 	@Override
 	public IterateurJoueur creerIterateur() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
