@@ -11,6 +11,7 @@ public class Jeux {
 
 	private int nbTours;
 	private int tourCourant;
+	
 
 	public Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
@@ -27,7 +28,23 @@ public class Jeux {
 	public CollectionJoueurs getJoueurs() {
 		return joueurs;
 	}
-
+	
+	public int getNbTours(){
+		return this.nbTours;
+	}
+	
+	public void setNbTours(int maxTours){
+		this.nbTours = maxTours; 
+	}
+	
+	public int getTourCourant(){
+		return this.tourCourant;
+	}
+	
+	public void incrementeurTour(){
+		this.tourCourant++;
+	}
+	
 	public int calculerScoreTour() {
 		return typeDeJeux.calculerScoreTour(this);
 	}
