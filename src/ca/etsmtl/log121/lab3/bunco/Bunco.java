@@ -10,11 +10,11 @@ public class Bunco implements IStrategie {
 	
 	@Override
 	public void initialiserJeux(Jeux jeux) {
-		CollectionDes des = jeux.getDes();
+		jeux.setNbTours(6);
 		
-		Integer[] faces = {1, 2, 3, 4, 5, 6};
+		CollectionDes des = jeux.getDes();
 		for(int i=0; i<3; i++) {
-			des.ajouterDe(new De(faces));
+			des.ajouterDe(new De());
 		}
 	}
 
