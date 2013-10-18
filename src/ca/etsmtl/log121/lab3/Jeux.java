@@ -5,16 +5,27 @@ import ca.etsmtl.log121.lab3.de.*;
 
 public class Jeux {
 
+	private final IStrategie typeDeJeux;
+	private final CollectionDe des;
+	private final CollectionJoueur joueurs;
+
 	private int nbTours;
 	private int tourCourant;
-	private IStrategie typeDeJeux;
-	private CollectionDe des;
-	private CollectionJoueur joueurs;
 
 	public Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
 		des = new CollectionDe();
+		joueurs = new CollectionJoueur();
+		tourCourant = 0;
 		typeDeJeux.initialiserJeux(this);
+	}
+
+	public CollectionDe getDes() {
+		return des;
+	}
+
+	public CollectionJoueur getJoueurs() {
+		return joueurs;
 	}
 
 	public int calculerScoreTour() {
@@ -33,5 +44,4 @@ public class Jeux {
 			deCourant.randomize();
 		}
 	}
-
 }
