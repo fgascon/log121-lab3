@@ -13,6 +13,20 @@ public class Jeux {
 	private int tourCourant;
 	
 
+	public Jeux(IStrategie typeDeJeux, int nbJoueurs) {
+		this(typeDeJeux);
+		for(int i=0; i<nbJoueurs; i++) {
+			joueurs.ajouterJoueur(new Joueur());
+		}
+	}
+	
+	public Jeux(IStrategie typeDeJeux, String[] nomsJoueurs) {
+		this(typeDeJeux);
+		for(int i=0; i<nomsJoueurs.length; i++) {
+			joueurs.ajouterJoueur(new Joueur(nomsJoueurs[i]));
+		}
+	}
+
 	public Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
 		des = new CollectionDes();
