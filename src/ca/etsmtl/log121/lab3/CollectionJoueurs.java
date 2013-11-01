@@ -31,4 +31,8 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 	public void sort() {
 		
 	}
+	
+	public Joueur[] toArray() {
+		return (Joueur[]) list.toArray();
+	}
 }
