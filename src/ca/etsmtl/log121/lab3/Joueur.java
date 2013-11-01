@@ -1,15 +1,18 @@
 package ca.etsmtl.log121.lab3;
 
+import java.util.ArrayList;
+
+
 public class Joueur implements Comparable<Joueur> {
 	
 	private String nom;
 	private int points;
-	private int[] pointsTours;
-	private int numeroJoueur = 1;
+	private ArrayList<Integer> pointsTours = new ArrayList<Integer>(1);
+	private static int numeroJoueur = 1;
 	
 	public Joueur(){
 		this.nom = ("Joueur" + numeroJoueur );
-		numeroJoueur++;
+		numeroJoueur= numeroJoueur+1;
 		this.points = 0;
 	}
 	
@@ -34,17 +37,21 @@ public class Joueur implements Comparable<Joueur> {
 		return this.nom;
 	}
 	
-	public void setPointsTours(int unTour, int desPoints){
-		this.pointsTours[unTour] = desPoints;
+	public void setPointsTours(int desPoints){
+		this.pointsTours.add(desPoints);
 	}
 	
 	public int getPointsTours(int unTour){
-		return this.pointsTours[unTour];
+		return this.pointsTours.get(unTour-1);
 	}
 
 	@Override
 	public int compareTo(Joueur autreJoueur){ 
-		// TODO Auto-generated method stub
+		if (this.getPoints()== autreJoueur.getPoints())
 		return 0;
+		else if (this.getPoints() > autreJoueur.getPoints())
+		return 1;
+		else
+		return -1;
 	}
 }

@@ -2,61 +2,81 @@ package UniteTester;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
-
 import ca.etsmtl.log121.lab3.Joueur;
+
+import org.junit.*;
 
 public class TestJoueur {
 
 	private Joueur JoueurTesteur;
 	
+	@Before
+	public void faireAvant(){
+		JoueurTesteur = new Joueur();
+	}
+	
 	@Test
 	public void testJoueur() {
-		JoueurTesteur = new Joueur();
-		//assertTrue("Les points valent 0", JoueurTesteur.getPoints() == 0);
 		assertEquals(0, JoueurTesteur.getPoints());
 		assertEquals("Joueur1", JoueurTesteur.getNom());
-		//fail("Not yet implemented");
+		JoueurTesteur = new Joueur();
+		assertEquals("Joueur2", JoueurTesteur.getNom());
 	}
 
 	@Test
 	public void testJoueurString() {
-		fail("Not yet implemented");
+		final String nomTest = "JoueurTesteur";
+		JoueurTesteur = new Joueur(nomTest);
+		assertEquals(nomTest, JoueurTesteur.getNom());
 	}
 
 	@Test
 	public void testSetPoints() {
-		fail("Not yet implemented");
+		final int pointsTest = 1;
+		JoueurTesteur.setPoints(pointsTest);
+		assertEquals(pointsTest, JoueurTesteur.getPoints());
 	}
 
-	@Test
+	/*@Test
 	public void testGetPoints() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	public void testSetNom() {
-		fail("Not yet implemented");
+		final String nomTest = "LeJoueurTesteur";
+		JoueurTesteur.setNom(nomTest);
+		assertEquals(nomTest, JoueurTesteur.getNom());
+		//fail("Not yet implemented");
 	}
 
-	@Test
+	/*@Test
 	public void testGetNom() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	public void testSetPointsTours() {
-		fail("Not yet implemented");
+		final int Tour = 1;
+		final int pointsTour = 2;
+		JoueurTesteur.setPointsTours(pointsTour);
+		assertEquals(pointsTour, JoueurTesteur.getPointsTours(Tour));
 	}
-
+	/*
 	@Test
 	public void testGetPointsTours() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	public void testCompareTo() {
-		fail("Not yet implemented");
+		final int petitPoints = 1;
+		final int grandPoints = 2;
+		Joueur JoueurTesteur2 = new Joueur();
+		JoueurTesteur.setPoints(petitPoints);
+		JoueurTesteur2.setPoints(grandPoints);
+		assertEquals(-1, JoueurTesteur.compareTo(JoueurTesteur2));
+		//fail("Not yet implemented");
 	}
 
 }
