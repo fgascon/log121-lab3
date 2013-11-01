@@ -19,12 +19,47 @@ public class Bunco implements IStrategie {
 	}
 
 	@Override
-	public Joueur calculerLeVainqueur(Jeux jeux) {
-		return null;
+	public Joueur[] calculerLeVainqueur(Jeux jeux) {
+		
+		int pointHauts = 0;
+		Joueur joueurGagnant[] = null;
+		int tourCourant = jeux.getTourCourant();
+		
+		for (int i = 0; i < jeux.getJoueurs().taille()-1;i++){
+			
+			int pointJoueur = jeux.getJoueurs().obtenirJoueur(i).getPointsTours(tourCourant);
+			
+			Joueur joueurCourant = jeux.getJoueurs().obtenirJoueur(i);
+			
+			if ( pointJoueur > pointHauts ){
+				if ( joueurGagnant[0] == null ){
+					joueurGagnant[0] = 
+					pointHauts = pointJoueur;
+				}
+				else{
+					Joueur joueurTemp = joueurGagnant[0];
+					joueurGagnant[0] = joueurCourant;
+					if 
+					
+					
+				}
+				pointHauts = pointJoueur;
+			}
+			
+		}
+		return joueurGagnant[];
 	}
 
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
+		
+		int nbDeDes = jeux.getDes().taille();
+		int resultatsDes[] = null;
+		
+		for (int i = 0; i < nbDeDes - 1; i++ ){
+			 resultatsDes[i] = (Integer)jeux.getDes().obtenirDe(i).getValeur();
+		}
+		
 		return 0;
 	}
 	
