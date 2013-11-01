@@ -66,7 +66,7 @@ public class Jeux {
 		return typeDeJeux.calculerScoreTour(this);
 	}
 	
-	public Joueur calculerLeVainqueur() {
+	public Joueur[] calculerLeVainqueur() {
 		return typeDeJeux.calculerLeVainqueur(this);
 	}
 	

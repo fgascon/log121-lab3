@@ -1,5 +1,9 @@
 package ca.etsmtl.log121.lab3.bunco;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 import ca.etsmtl.log121.lab3.CollectionDes;
 import ca.etsmtl.log121.lab3.De;
 import ca.etsmtl.log121.lab3.IStrategie;
@@ -21,33 +25,12 @@ public class Bunco implements IStrategie {
 	@Override
 	public Joueur[] calculerLeVainqueur(Jeux jeux) {
 		
-		int pointHauts = 0;
-		Joueur joueurGagnant[] = null;
-		int tourCourant = jeux.getTourCourant();
 		
-		for (int i = 0; i < jeux.getJoueurs().taille()-1;i++){
-			
-			int pointJoueur = jeux.getJoueurs().obtenirJoueur(i).getPointsTours(tourCourant);
-			
-			Joueur joueurCourant = jeux.getJoueurs().obtenirJoueur(i);
-			
-			if ( pointJoueur > pointHauts ){
-				if ( joueurGagnant[0] == null ){
-					joueurGagnant[0] = 
-					pointHauts = pointJoueur;
-				}
-				else{
-					Joueur joueurTemp = joueurGagnant[0];
-					joueurGagnant[0] = joueurCourant;
-					if 
-					
-					
-				}
-				pointHauts = pointJoueur;
-			}
-			
-		}
-		return joueurGagnant[];
+		ComparateurJoueur unComparateur = new ComparateurJoueur();
+		
+		Joueur desJoueurs[] = jeux.getJoueurs().toArray();
+		Arrays.sort(desJoueurs,unComparateur);
+		return desJoueurs;
 	}
 
 	@Override
@@ -64,6 +47,16 @@ public class Bunco implements IStrategie {
 
 		Joueur joueurCourant = jeux.getJoueurCourant();
 		return 0;
+	}
+	
+	private class ComparateurJoueur implements Comparator<Joueur>{
+
+		@Override
+		public int compare(Joueur arg0, Joueur arg1) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
 	}
 	
 }

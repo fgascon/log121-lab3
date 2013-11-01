@@ -5,7 +5,7 @@ public interface IStrategie {
 	
 	public void initialiserJeux(Jeux jeux);
 	
-	public Joueur calculerLeVainqueur(Jeux jeux);
+	public Joueur[] calculerLeVainqueur(Jeux jeux);
 	
 	public int calculerScoreTour(Jeux jeux);
 }
