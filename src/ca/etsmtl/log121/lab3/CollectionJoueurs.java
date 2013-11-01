@@ -27,10 +27,6 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 	public IterateurJoueur creerIterateur() {
 		return null;
 	}
-
-	public void sort() {
-		
-	}
 	
 	public Joueur[] toArray() {
 		return (Joueur[]) list.toArray();
