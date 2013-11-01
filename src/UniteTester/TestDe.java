@@ -1,15 +1,13 @@
 package UniteTester;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-import ca.etsmtl.log121.lab3.de.*;
+import ca.etsmtl.log121.lab3.De;
 
 public class TestDe {
-	
+
 	@Test
 	public void testUnDe(){
 		
