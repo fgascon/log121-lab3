@@ -8,7 +8,7 @@ public class Jeux {
 
 	private int nbTours;
 	private int tourCourant;
-	
+	private Joueur joueurCourant;
 
 	public Jeux(IStrategie typeDeJeux, int nbJoueurs) {
 		this(typeDeJeux);
@@ -16,7 +16,7 @@ public class Jeux {
 			joueurs.ajouterJoueur(new Joueur());
 		}
 	}
-	
+
 	public Jeux(IStrategie typeDeJeux, String[] nomsJoueurs) {
 		this(typeDeJeux);
 		for(int i=0; i<nomsJoueurs.length; i++) {
@@ -24,11 +24,12 @@ public class Jeux {
 		}
 	}
 
-	public Jeux(IStrategie typeDeJeux) {
+	private Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
 		des = new CollectionDes();
 		joueurs = new CollectionJoueurs();
 		tourCourant = 0;
+		joueurCourant = null;
 		typeDeJeux.initialiserJeux(this);
 	}
 
@@ -56,15 +57,23 @@ public class Jeux {
 		this.tourCourant++;
 	}
 	
+	public Joueur getJoueurCourant() {
+		return joueurCourant;
+	}
+	
+	public void setJoueurCourant(Joueur joueurCourant) {
+		this.joueurCourant = joueurCourant;
+	}
+	
 	public int calculerScoreTour() {
 		return typeDeJeux.calculerScoreTour(this);
 	}
-
+	
 	public Joueur calculerLeVainqueur() {
 		return typeDeJeux.calculerLeVainqueur(this);
 	}
-
-	public void brasserDes(Joueur unJoueur) {
+	
+	public void brasserDes() {
 		IterateurDes iterateur = des.creerIterateur();
 		De deCourant;
 		while(iterateur.hasNext()) {
