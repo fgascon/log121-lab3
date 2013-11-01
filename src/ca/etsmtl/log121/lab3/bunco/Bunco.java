@@ -52,6 +52,7 @@ public class Bunco implements IStrategie {
 
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
+<<<<<<< HEAD
 		
 		int nbDeDes = jeux.getDes().taille();
 		int resultatsDes[] = null;
@@ -60,6 +61,9 @@ public class Bunco implements IStrategie {
 			 resultatsDes[i] = (Integer)jeux.getDes().obtenirDe(i).getValeur();
 		}
 		
+=======
+		Joueur joueurCourant = jeux.getJoueurCourant();
+>>>>>>> 5cdc844777a4518f2b8019ca7b7e05e68187a0a0
 		return 0;
 	}
 	
