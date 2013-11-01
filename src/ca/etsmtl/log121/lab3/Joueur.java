@@ -5,9 +5,11 @@ public class Joueur implements Comparable<Joueur> {
 	private String nom;
 	private int points;
 	private int[] pointsTours;
+	private int numeroJoueur = 1;
 	
 	public Joueur(){
-		this.nom = ("Joueur" + String.valueOf(Math.floor(Math.random()) ));
+		this.nom = ("Joueur" + numeroJoueur );
+		numeroJoueur++;
 		this.points = 0;
 	}
 	
