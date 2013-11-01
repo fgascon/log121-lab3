@@ -37,23 +37,12 @@ public class TestJoueur {
 		assertEquals(pointsTest, JoueurTesteur.getPoints());
 	}
 
-	/*@Test
-	public void testGetPoints() {
-		fail("Not yet implemented");
-	}*/
-
 	@Test
 	public void testSetNom() {
 		final String nomTest = "LeJoueurTesteur";
 		JoueurTesteur.setNom(nomTest);
 		assertEquals(nomTest, JoueurTesteur.getNom());
-		//fail("Not yet implemented");
 	}
-
-	/*@Test
-	public void testGetNom() {
-		fail("Not yet implemented");
-	}*/
 
 	@Test
 	public void testSetPointsTours() {
@@ -62,11 +51,6 @@ public class TestJoueur {
 		JoueurTesteur.setPointsTours(pointsTour);
 		assertEquals(pointsTour, JoueurTesteur.getPointsTours(Tour));
 	}
-	/*
-	@Test
-	public void testGetPointsTours() {
-		fail("Not yet implemented");
-	}*/
 
 	@Test
 	public void testCompareTo() {
@@ -76,7 +60,6 @@ public class TestJoueur {
 		JoueurTesteur.setPoints(petitPoints);
 		JoueurTesteur2.setPoints(grandPoints);
 		assertEquals(-1, JoueurTesteur.compareTo(JoueurTesteur2));
-		//fail("Not yet implemented");
 	}
 
 }
