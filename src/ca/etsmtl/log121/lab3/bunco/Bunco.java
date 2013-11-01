@@ -25,6 +25,7 @@ public class Bunco implements IStrategie {
 
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
+		Joueur joueurCourant = jeux.getJoueurCourant();
 		return 0;
 	}
 	

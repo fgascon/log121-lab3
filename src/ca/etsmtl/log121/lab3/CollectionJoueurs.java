@@ -28,4 +28,7 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 		return null;
 	}
 
+	public void sort() {
+		
+	}
 }
