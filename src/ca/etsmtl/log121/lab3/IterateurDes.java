@@ -1,6 +1,5 @@
-package ca.etsmtl.log121.lab3.de;
+package ca.etsmtl.log121.lab3;
 
-import ca.etsmtl.log121.lab3.Iterateur;
 
 public class IterateurDes implements Iterateur<De> {
 

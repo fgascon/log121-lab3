@@ -1,6 +1,5 @@
 package ca.etsmtl.log121.lab3;
 
-import ca.etsmtl.log121.lab3.joueur.Joueur;
 
 public interface IStrategie {
 	

@@ -1,8 +1,5 @@
 package ca.etsmtl.log121.lab3;
 
-import ca.etsmtl.log121.lab3.joueur.*;
-import ca.etsmtl.log121.lab3.de.*;
-
 public class Jeux {
 
 	private final IStrategie typeDeJeux;

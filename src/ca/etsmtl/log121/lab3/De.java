@@ -1,4 +1,4 @@
-package ca.etsmtl.log121.lab3.de;
+package ca.etsmtl.log121.lab3;
 
 public class De implements Comparable<De> {
 	private Object[] nbDeFaces;

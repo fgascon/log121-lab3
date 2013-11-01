@@ -1,6 +1,5 @@
-package ca.etsmtl.log121.lab3.joueur;
+package ca.etsmtl.log121.lab3;
 
-import ca.etsmtl.log121.lab3.Iterateur;
 
 public class IterateurJoueur implements Iterateur<Joueur> {
 

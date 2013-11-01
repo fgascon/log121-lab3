@@ -1,4 +1,4 @@
-package ca.etsmtl.log121.lab3.joueur;
+package ca.etsmtl.log121.lab3;
 
 public class Joueur implements Comparable<Joueur> {
 	

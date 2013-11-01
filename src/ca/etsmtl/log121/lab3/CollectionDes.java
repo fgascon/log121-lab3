@@ -1,8 +1,7 @@
-package ca.etsmtl.log121.lab3.de;
+package ca.etsmtl.log121.lab3;
 
 import java.util.ArrayList;
 
-import ca.etsmtl.log121.lab3.Iterable;
 
 public class CollectionDes implements Iterable<De> {
 

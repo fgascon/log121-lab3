@@ -1,8 +1,7 @@
-package ca.etsmtl.log121.lab3.joueur;
+package ca.etsmtl.log121.lab3;
 
 import java.util.ArrayList;
 
-import ca.etsmtl.log121.lab3.Iterable;
 
 public class CollectionJoueurs implements Iterable<Joueur> {
 

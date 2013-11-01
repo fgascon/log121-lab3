@@ -1,10 +1,10 @@
 package ca.etsmtl.log121.lab3.bunco;
 
+import ca.etsmtl.log121.lab3.CollectionDes;
+import ca.etsmtl.log121.lab3.De;
 import ca.etsmtl.log121.lab3.IStrategie;
 import ca.etsmtl.log121.lab3.Jeux;
-import ca.etsmtl.log121.lab3.de.CollectionDes;
-import ca.etsmtl.log121.lab3.de.De;
-import ca.etsmtl.log121.lab3.joueur.Joueur;
+import ca.etsmtl.log121.lab3.Joueur;
 
 public class Bunco implements IStrategie {
 	
