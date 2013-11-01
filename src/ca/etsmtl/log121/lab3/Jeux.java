@@ -8,7 +8,7 @@ public class Jeux {
 
 	private int nbTours;
 	private int tourCourant;
-	private Joueur joueurCourant;
+	private Iterateur<Joueur> joueurCourant;
 
 	public Jeux(IStrategie typeDeJeux, int nbJoueurs) {
 		this(typeDeJeux);
@@ -28,8 +28,8 @@ public class Jeux {
 		this.typeDeJeux = typeDeJeux;
 		des = new CollectionDes();
 		joueurs = new CollectionJoueurs();
-		tourCourant = 0;
-		joueurCourant = null;
+		tourCourant = 1;
+		joueurCourant = joueurs.creerIterateur();
 		typeDeJeux.initialiserJeux(this);
 	}
 
@@ -55,14 +55,11 @@ public class Jeux {
 	
 	public void incrementeurTour(){
 		this.tourCourant++;
+		this.joueurCourant = joueurs.creerIterateur();
 	}
 	
-	public Joueur getJoueurCourant() {
+	public Iterateur<Joueur> getJoueurCourant() {
 		return joueurCourant;
-	}
-	
-	public void setJoueurCourant(Joueur joueurCourant) {
-		this.joueurCourant = joueurCourant;
 	}
 	
 	public int calculerScoreTour() {
