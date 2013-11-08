@@ -14,6 +14,7 @@ public class TestJeux {
 	private class TestJeuxStrategie implements IStrategie {
 
 		public Joueur vainqueur;
+		public Joueur[] vainqueurTab;
 		
 		public TestJeuxStrategie(Joueur vainqueur) {
 			this.vainqueur = vainqueur;
@@ -25,8 +26,8 @@ public class TestJeux {
 		}
 
 		@Override
-		public Joueur calculerLeVainqueur(Jeux jeux) {
-			return vainqueur;
+		public Joueur[] calculerLeVainqueur(Jeux jeux) {
+			return vainqueurTab;
 		}
 
 		@Override
@@ -39,6 +40,8 @@ public class TestJeux {
 	private Joueur vainqueur;
 	
 	public TestJeux() {
+		
+		
 		vainqueur = new Joueur("vainqueur");
 	}
 	
