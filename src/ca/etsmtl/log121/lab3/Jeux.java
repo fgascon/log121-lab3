@@ -24,7 +24,7 @@ public class Jeux {
 		}
 	}
 
-	private Jeux(IStrategie typeDeJeux) {
+	public Jeux(IStrategie typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
 		des = new CollectionDes();
 		joueurs = new CollectionJoueurs();
