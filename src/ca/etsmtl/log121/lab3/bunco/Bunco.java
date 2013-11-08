@@ -33,19 +33,24 @@ public class Bunco implements IStrategie {
 		return desJoueurs;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
-
-		
+		int scoreAccumulé = 0;
+		Joueur joueurCourant = (Joueur) jeux.getJoueurCourant().getNext();
 		int nbDeDes = jeux.getDes().taille();
-		int resultatsDes[] = null;
+		int resultatsDes[] = null ;
 		
-		for (int i = 0; i < nbDeDes - 1; i++ ){
-			 resultatsDes[i] = (Integer)jeux.getDes().obtenirDe(i).getValeur();
+		for (int i=0; i<nbDeDes-1;i++){
+			De leDe = jeux.getDes().obtenirDe(i);
+			resultatsDes[i] = (Integer) leDe.getValeur() ;	
 		}
 		
+		joueurCourant.setPoints(scoreAccumulé);
+		
+		
 
-		Joueur joueurCourant = jeux.getJoueurCourant();
+		
 		return 0;
 	}
 	
@@ -58,5 +63,7 @@ public class Bunco implements IStrategie {
 		}
 		
 	}
+	
+	
 	
 }
