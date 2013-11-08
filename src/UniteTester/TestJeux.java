@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+//import UniteTester.TestBunco.Strategie;
+import ca.etsmtl.log121.lab3.IStrategie;
+
 import ca.etsmtl.log121.lab3.*;
 
 public class TestJeux {
@@ -22,7 +25,6 @@ public class TestJeux {
 		
 		@Override
 		public void initialiserJeux(Jeux jeux) {
-			jeux.getJoueurs().ajouterJoueur(vainqueur);
 		}
 
 		@Override
@@ -39,11 +41,20 @@ public class TestJeux {
 	
 	private Joueur vainqueur;
 	
-	public TestJeux() {
+	@Test
+	public void TestJeux() {
 		
+		/**
+		final Joueur unJoueur = new Joueur();
+		final IStrategie uneStrategie = new TestJeuxStrategie(unJoueur);
+		final Jeux jeuxTesteur = new Jeux(uneStrategie,DEFAULT_JOUEUR_COUNT);
+		final Jeux jeuxTesteur2 = this.generateJeux();
+		**/
 		
-		vainqueur = new Joueur("vainqueur");
+		assertTrue(this.generateJeux().getJoueurs().taille() == DEFAULT_JOUEUR_COUNT);
+		//vainqueur = new Joueur("vainqueur");
 	}
+	
 	
 	private Jeux generateJeux() {
 		IStrategie strategie = new TestJeuxStrategie(vainqueur);

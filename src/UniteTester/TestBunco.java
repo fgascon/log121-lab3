@@ -45,18 +45,18 @@ public class TestBunco {
 		unBunco.initialiserJeux(unJeux);
 		
 		assertTrue(unJeux.getDes().taille()==3);
-		assertTrue(unJeux.getDes().taille()< 4);
-		assertTrue(unJeux.getDes().taille()> 2);
+		//assertTrue(unJeux.getDes().taille()< 4);
+		//assertTrue(unJeux.getDes().taille()> 2);
 		//assertFalse(unJeux.getDes().taille()> 4);
 		//assertFalse(unJeux.getDes().taille()< 2);
 		//assertFalse(unJeux.getDes().taille()!=3);
 		assertTrue(unJeux.getJoueurs().taille() == 3);
 	}
-	
+	/**
 	@Test
 	public Joueur[] calculerLeVainqueur(Jeux jeux){
 		Bunco unBunco = new Bunco();
 		unBunco.initialiserJeux(jeux);
-	}
+	}**/
 	
 }
