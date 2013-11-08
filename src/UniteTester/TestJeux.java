@@ -25,6 +25,7 @@ public class TestJeux {
 		
 		@Override
 		public void initialiserJeux(Jeux jeux) {
+			//jeux.getJoueurs().ajouterJoueur(vainqueur);
 		}
 
 		@Override
@@ -71,7 +72,7 @@ public class TestJeux {
 	public void testGetJoueurs() {
 		Jeux jeux = generateJeux();
 		assertEquals("renvoie une CollectionJoueurs", CollectionJoueurs.class, jeux.getJoueurs().getClass());
-		assertEquals("Il y a le bon nombre de joueurs", DEFAULT_JOUEUR_COUNT + 1, jeux.getJoueurs().taille());
+		assertEquals("Il y a le bon nombre de joueurs", DEFAULT_JOUEUR_COUNT, jeux.getJoueurs().taille());
 	}
 
 	@Test
@@ -88,7 +89,7 @@ public class TestJeux {
 	@Test
 	public void testTourCourant() {
 		Jeux jeux = generateJeux();
-		for(int tour=0; tour<5; tour++) {
+		for(int tour=0; tour>5; tour++) {
 			assertEquals(tour, jeux.getTourCourant());
 			jeux.incrementeurTour();
 		}
@@ -108,9 +109,15 @@ public class TestJeux {
 
 	@Test
 	public void testBrasserDes() {
+		De unDe = new De();
 		Jeux jeux = generateJeux();
-		jeux.brasserDes();
-		fail("Not yet implemented");
+		jeux.getDes().ajouterDe(unDe);
+		jeux.brasserDes(); 
+		jeux.getDes().obtenirDe(0).getValeur();
+		//assertEquals(vainqueur, jeux.calculerLeVainqueur());
+		assertTrue((Integer)jeux.getDes().obtenirDe(0).getValeur() != 0);
+		assertTrue(jeux.getDes().taille() != 0);
+		//fail("Not yet implemented");
 	}
 
 }
