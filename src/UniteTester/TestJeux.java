@@ -1,3 +1,14 @@
+/******************************************************
+Cours:  LOG121
+Projet: Laboratoire 3
+Nom du fichier: TestJeux.java
+Date créé: 2013-10-25
+ *******************************************************
+Historique des modifications
+ *******************************************************
+ *@author Shaun-David Sauro, Gabriel St-Hilaire
+ *@date 2013-10-25
+ *******************************************************/
 package UniteTester;
 
 import static org.junit.Assert.*;
