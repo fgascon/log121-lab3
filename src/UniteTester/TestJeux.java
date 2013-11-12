@@ -16,11 +16,11 @@ public class TestJeux {
 
 	private class TestJeuxStrategie implements IStrategie {
 
-		public Joueur vainqueur;
+		//public Joueur vainqueur;
 		public Joueur[] vainqueurTab;
 		
 		public TestJeuxStrategie(Joueur vainqueur) {
-			this.vainqueur = vainqueur;
+		//a	this.vainqueur = vainqueur;
 		}
 		
 		@Override
@@ -43,7 +43,7 @@ public class TestJeux {
 	private Joueur vainqueur;
 	
 	@Test
-	public void TestJeux() {
+	public void TestdeJeux() {
 		
 		/**
 		final Joueur unJoueur = new Joueur();

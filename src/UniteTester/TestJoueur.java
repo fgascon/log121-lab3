@@ -18,9 +18,9 @@ public class TestJoueur {
 	@Test
 	public void testJoueur() {
 		assertEquals(0, JoueurTesteur.getPoints());
-		assertEquals("Joueur1", JoueurTesteur.getNom());
+		String[] numeroJoueur = (JoueurTesteur.getNom()).split("r");
 		JoueurTesteur = new Joueur();
-		assertEquals("Joueur2", JoueurTesteur.getNom());
+		assertEquals("Joueur"+(Integer.parseInt(numeroJoueur[1])+1), JoueurTesteur.getNom());
 	}
 
 	@Test
