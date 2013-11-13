@@ -6,7 +6,7 @@ Date créé: 2013-10-25
  *******************************************************
 Historique des modifications
  *******************************************************
- *@author Shaun-David Sauro, Gabriel St-Hilaire
+ *@author Shaun-David Sauro, Gabriel St-Hilaire, Frédéric Gascon
  *@date 2013-10-25
  *******************************************************/
 package UniteTester;
