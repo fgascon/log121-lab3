@@ -65,9 +65,33 @@ public class TestBunco {
 	}
 	/**
 	@Test
-	public Joueur[] calculerLeVainqueur(Jeux jeux){
+	public void testcalculerLeVainqueur(){
+		
+		Joueur unJoueur = new Joueur();
+		IStrategie uneStrategie = new Strategie(unJoueur);
+		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
 		Bunco unBunco = new Bunco();
+<<<<<<< HEAD
+		unBunco.initialiserJeux(unJeux);
+		
+		
+		Joueur joueur1= unJeux.getJoueurs().obtenirJoueur(0);
+		joueur1.setPoints(250);
+		assertTrue(joueur1.getPoints()==250);
+		Joueur joueur2 = unJeux.getJoueurs().obtenirJoueur(1);
+		joueur2.setPoints(50);
+		Joueur joueur3 = unJeux.getJoueurs().obtenirJoueur(2);
+		joueur3.setPoints(215);
+		
+		Joueur ordreGagnant[] = unBunco.calculerLeVainqueur(unJeux);
+		assertTrue(ordreGagnant[0] == joueur1);
+		assertTrue(ordreGagnant[1] == joueur3);
+		assertTrue(ordreGagnant[2] == joueur2);
+		
+	}
+=======
 		unBunco.initialiserJeux(jeux);
 	}**/
+>>>>>>> d22db3659f866cd774632a29d691bb1f27bb225d
 	
 }
