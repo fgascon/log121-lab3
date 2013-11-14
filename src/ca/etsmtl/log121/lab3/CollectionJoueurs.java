@@ -40,6 +40,6 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 	}
 	
 	public Joueur[] toArray() {
-		return (Joueur[]) list.toArray();
+		return  list.toArray(new Joueur[this.taille()]);
 	}
 }

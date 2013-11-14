@@ -64,6 +64,7 @@ public class TestBunco {
 		assertTrue(unJeux.getJoueurs().taille() == 3);
 	}
 	
+	@Test
 	public void testcalculerLeVainqueur(){
 		
 		Joueur unJoueur = new Joueur();
@@ -86,6 +87,23 @@ public class TestBunco {
 		assertTrue(ordreGagnant[1] == joueur3);
 		assertTrue(ordreGagnant[2] == joueur2);
 		
+	}
+	
+	@Test
+	public void calculerScoreTour(){
+		Joueur unJoueur = new Joueur();
+		IStrategie uneStrategie = new Strategie(unJoueur);
+		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
+		Bunco unBunco = new Bunco();
+		unBunco.initialiserJeux(unJeux);
+		
+		unJeux.getDes().obtenirDe(0).setValeur(5);
+		unJeux.getDes().obtenirDe(1).setValeur(5);
+		unJeux.getDes().obtenirDe(2).setValeur(5);
+		
+		unBunco.calculerScoreTour(unJeux);
+		
+		assertTrue(unJoueur.getPoints() == 21);
 	}
 	
 }

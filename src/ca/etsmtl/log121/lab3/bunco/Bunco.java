@@ -48,7 +48,7 @@ public class Bunco implements IStrategie {
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
 		int scoreAccumule = 0;
-		Joueur joueurCourant = (Joueur) jeux.getJoueurCourant().getNext();
+		Joueur joueurCourant = jeux.getJoueurCourant().getNext();
 		int nbDeDes = jeux.getDes().taille();
 		int resultatsDes[] = null ;
 		int desACompare[] = null;
@@ -87,7 +87,9 @@ public class Bunco implements IStrategie {
 		@Override
 		public int compare(Joueur arg0, Joueur arg1) {
 			// TODO Auto-generated method stub
-			return 0;
+			
+			
+			return arg1.compareTo(arg0);
 		}
 		
 	}
