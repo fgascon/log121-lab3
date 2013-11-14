@@ -63,15 +63,13 @@ public class TestBunco {
 		//assertFalse(unJeux.getDes().taille()!=3);
 		assertTrue(unJeux.getJoueurs().taille() == 3);
 	}
-	/**
-	@Test
+	
 	public void testcalculerLeVainqueur(){
 		
 		Joueur unJoueur = new Joueur();
 		IStrategie uneStrategie = new Strategie(unJoueur);
 		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
 		Bunco unBunco = new Bunco();
-<<<<<<< HEAD
 		unBunco.initialiserJeux(unJeux);
 		
 		
@@ -89,9 +87,5 @@ public class TestBunco {
 		assertTrue(ordreGagnant[2] == joueur2);
 		
 	}
-=======
-		unBunco.initialiserJeux(jeux);
-	}**/
->>>>>>> d22db3659f866cd774632a29d691bb1f27bb225d
 	
 }
