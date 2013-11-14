@@ -48,27 +48,36 @@ public class Bunco implements IStrategie {
 	@Override
 	public int calculerScoreTour(Jeux jeux) {
 		int scoreAccumule = 0;
-		Joueur joueurCourant = jeux.getJoueurCourant().getNext();
-		int nbDeDes = jeux.getDes().taille();
-		int resultatsDes[] = null ;
-		int desACompare[] = null;
 		
-		for (int i=0; i<nbDeDes-1;i++){
+		
+		Joueur joueurCourant = jeux.getJoueurCourant().getNext();
+		
+		int nbDeDes = jeux.getDes().taille();
+		
+		int resultatsDes[] = new int[nbDeDes];
+		
+		ArrayList<Integer> desACompare = new ArrayList<Integer>();
+		
+		
+		for (int i=0; i < nbDeDes ;i++){
 			De leDe = jeux.getDes().obtenirDe(i);
-			resultatsDes[i] = (Integer) leDe.getValeur();	
+			resultatsDes[i] = (int) leDe.getValeur();	
 		}
 		
-		for (int i=0; i<nbDeDes-1;i++){
-			if (resultatsDes[i]== jeux.getTourCourant()){
-				desACompare [i] = resultatsDes[i];
+		
+		
+		for (int i=0; i<nbDeDes;i++){
+			if (resultatsDes[i] == jeux.getTourCourant() ){
+				desACompare.add(resultatsDes[i]);
 			}
 		}
 		
-		if (desACompare.length == 3){
+		
+		if (desACompare.size() == 3){
 			scoreAccumule = 21;
-		}else if(desACompare.length == 2){
+		}else if(desACompare.size() == 2){
 			scoreAccumule = jeux.getTourCourant() * 2;
-		}else if(desACompare.length == 1) {
+		}else if(desACompare.size() == 1) {
 			scoreAccumule = jeux.getTourCourant();
 		}else if(resultatsDes[0]== resultatsDes[1] && resultatsDes[1] == resultatsDes[2]){
 			scoreAccumule = 5;
@@ -79,7 +88,7 @@ public class Bunco implements IStrategie {
 		
 
 		
-		return 0;
+		return scoreAccumule;
 	}
 	
 	private class ComparateurJoueur implements Comparator<Joueur>{

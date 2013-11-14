@@ -36,7 +36,8 @@ public class CollectionJoueurs implements Iterable<Joueur> {
 
 	@Override
 	public IterateurJoueur creerIterateur() {
-		return null;
+		IterateurJoueur unIterateur = new IterateurJoueur(this);
+		return unIterateur;
 	}
 	
 	public Joueur[] toArray() {

@@ -14,9 +14,7 @@ package UniteTester;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
 import ca.etsmtl.log121.lab3.bunco.Bunco;
-
 import ca.etsmtl.log121.lab3.IStrategie;
 import ca.etsmtl.log121.lab3.Jeux;
 import ca.etsmtl.log121.lab3.Joueur;
@@ -97,13 +95,17 @@ public class TestBunco {
 		Bunco unBunco = new Bunco();
 		unBunco.initialiserJeux(unJeux);
 		
-		unJeux.getDes().obtenirDe(0).setValeur(5);
-		unJeux.getDes().obtenirDe(1).setValeur(5);
-		unJeux.getDes().obtenirDe(2).setValeur(5);
-		
+		unJeux.getDes().obtenirDe(0).setValeur(1);
+		unJeux.getDes().obtenirDe(1).setValeur(1);
+		unJeux.getDes().obtenirDe(2).setValeur(1);
+				
 		unBunco.calculerScoreTour(unJeux);
 		
-		assertTrue(unJoueur.getPoints() == 21);
+		int leJoueur = unJeux.getJoueurs().obtenirJoueur(0).getPointsTours(1);
+		
+		assertTrue(leJoueur == 21);
+		
+		
 	}
 	
 }
