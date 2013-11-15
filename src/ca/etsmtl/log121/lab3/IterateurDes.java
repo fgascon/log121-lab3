@@ -11,13 +11,12 @@ Historique des modifications
  *******************************************************/
 package ca.etsmtl.log121.lab3;
 
+public class IterateurDes<Type extends Comparable<Type>> implements Iterateur<De<Type>> {
 
-public class IterateurDes implements Iterateur<De> {
-
-	private final CollectionDes collection;
+	private final CollectionDes<Type> collection;
 	private int courant;
 
-	public IterateurDes(CollectionDes collection) {
+	public IterateurDes(CollectionDes<Type> collection) {
 		this.collection = collection;
 		courant = 0;
 	}
@@ -28,8 +27,7 @@ public class IterateurDes implements Iterateur<De> {
 	}
 
 	@Override
-	public De getNext() {
+	public De<Type> getNext() {
 		return collection.obtenirDe(courant++);
 	}
-	
 }

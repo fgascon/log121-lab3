@@ -11,40 +11,40 @@ Historique des modifications
  *******************************************************/
 package ca.etsmtl.log121.lab3;
 
-public class Jeux {
+public class Jeux<Type extends Comparable<Type>> {
 
-	private final IStrategie typeDeJeux;
-	private final CollectionDes des;
+	private final IStrategie<Type> typeDeJeux;
+	private final CollectionDes<Type> des;
 	private final CollectionJoueurs joueurs;
 
 	private int nbTours;
 	private int tourCourant;
 	private Iterateur<Joueur> joueurCourant;
 
-	public Jeux(IStrategie typeDeJeux, int nbJoueurs) {
+	public Jeux(IStrategie<Type> typeDeJeux, int nbJoueurs) {
 		this(typeDeJeux);
 		for(int i=0; i<nbJoueurs; i++) {
 			joueurs.ajouterJoueur(new Joueur());
 		}
 	}
 
-	public Jeux(IStrategie typeDeJeux, String[] nomsJoueurs) {
+	public Jeux(IStrategie<Type> typeDeJeux, String[] nomsJoueurs) {
 		this(typeDeJeux);
 		for(int i=0; i<nomsJoueurs.length; i++) {
 			joueurs.ajouterJoueur(new Joueur(nomsJoueurs[i]));
 		}
 	}
 
-	public Jeux(IStrategie typeDeJeux) {
+	public Jeux(IStrategie<Type> typeDeJeux) {
 		this.typeDeJeux = typeDeJeux;
-		des = new CollectionDes();
+		des = new CollectionDes<Type>();
 		joueurs = new CollectionJoueurs();
 		tourCourant = 1;
 		joueurCourant = joueurs.creerIterateur();
 		typeDeJeux.initialiserJeux(this);
 	}
 
-	public CollectionDes getDes() {
+	public CollectionDes<Type> getDes() {
 		return des;
 	}
 
@@ -82,11 +82,9 @@ public class Jeux {
 	}
 	
 	public void brasserDes() {
-		IterateurDes iterateur = des.creerIterateur();
-		De deCourant;
+		IterateurDes<Type> iterateur = des.creerIterateur();
 		while(iterateur.hasNext()) {
-			deCourant = iterateur.getNext();
-			deCourant.randomize();
+			iterateur.getNext().randomize();
 		}
 	}
 }

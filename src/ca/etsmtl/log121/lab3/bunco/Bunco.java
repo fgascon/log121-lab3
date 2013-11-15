@@ -21,13 +21,13 @@ import ca.etsmtl.log121.lab3.IStrategie;
 import ca.etsmtl.log121.lab3.Jeux;
 import ca.etsmtl.log121.lab3.Joueur;
 
-public class Bunco implements IStrategie {
+public class Bunco implements IStrategie<Integer> {
 	
 	@Override
-	public void initialiserJeux(Jeux jeux) {
+	public void initialiserJeux(Jeux<Integer> jeux) {
 		jeux.setNbTours(6);
 		
-		CollectionDes des = jeux.getDes();
+		CollectionDes<Integer> des = jeux.getDes();
 		Integer[] listeFaces = {1,2,3,4,5,6};
 		for(int i=0; i<3; i++) {
 			des.ajouterDe(new De<Integer>(listeFaces));
@@ -35,19 +35,18 @@ public class Bunco implements IStrategie {
 	}
 
 	@Override
-	public Joueur[] calculerLeVainqueur(Jeux jeux) {
+	public Joueur[] calculerLeVainqueur(Jeux<Integer> jeux) {
 		ComparateurJoueur unComparateur = new ComparateurJoueur();
 		
 		Joueur desJoueurs[] = jeux.getJoueurs().toArray();
-		Arrays.sort(desJoueurs,unComparateur);
+		Arrays.sort(desJoueurs, unComparateur);
 		return desJoueurs;
 	}
 
 	@Override
-	public int calculerScoreTour(Jeux jeux) {
+	public int calculerScoreTour(Jeux<Integer> jeux) {
 		int scoreAccumule = 0;
-		
-		
+
 		Joueur joueurCourant = jeux.getJoueurCourant().getNext();
 		
 		int nbDeDes = jeux.getDes().taille();
@@ -57,7 +56,7 @@ public class Bunco implements IStrategie {
 		ArrayList<Integer> desACompare = new ArrayList<Integer>();
 		
 		for (int i=0; i < nbDeDes ;i++){
-			De<Integer> leDe = (De<Integer>)jeux.getDes().obtenirDe(i);
+			De<Integer> leDe = jeux.getDes().obtenirDe(i);
 			resultatsDes[i] = (Integer) leDe.getValeur();	
 		}
 		
@@ -88,6 +87,5 @@ public class Bunco implements IStrategie {
 		public int compare(Joueur arg0, Joueur arg1) {
 			return arg1.compareTo(arg0);
 		}
-		
 	}
 }

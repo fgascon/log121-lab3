@@ -23,22 +23,17 @@ public class TestBunco {
 	
 	int DEFAULT_PLAYER_NUMBER = 3;
 	
-	private class Strategie implements IStrategie{
-		public Joueur vainqueur;
+	private class Strategie implements IStrategie<Integer>{
 		
-		public Strategie(Joueur unVainqueur){
-			vainqueur = unVainqueur;
+		public void initialiserJeux(Jeux<Integer> jeux){
 		}
 		
-		public void initialiserJeux(Jeux jeux){
-			}
-		
-		public int calculerScoreTour(Jeux jeux) {
+		public int calculerScoreTour(Jeux<Integer> jeux) {
 			return 0;
 		}
 
 		@Override
-		public Joueur[] calculerLeVainqueur(Jeux jeux) {
+		public Joueur[] calculerLeVainqueur(Jeux<Integer> jeux) {
 			return null;
 		}
 	}
@@ -46,9 +41,8 @@ public class TestBunco {
 	@Test
 	public void testBunco(){
 		
-		Joueur unJoueur = new Joueur();
-		IStrategie uneStrategie = new Strategie(unJoueur);
-		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
+		IStrategie<Integer> uneStrategie = new Strategie();
+		Jeux<Integer> unJeux = new Jeux<Integer>(uneStrategie, DEFAULT_PLAYER_NUMBER);
 		Bunco unBunco = new Bunco();
 		unBunco.initialiserJeux(unJeux);
 		
@@ -64,9 +58,8 @@ public class TestBunco {
 	@Test
 	public void testcalculerLeVainqueur(){
 		
-		Joueur unJoueur = new Joueur();
-		IStrategie uneStrategie = new Strategie(unJoueur);
-		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
+		IStrategie<Integer> uneStrategie = new Strategie();
+		Jeux<Integer> unJeux = new Jeux<Integer>(uneStrategie, DEFAULT_PLAYER_NUMBER);
 		Bunco unBunco = new Bunco();
 		unBunco.initialiserJeux(unJeux);
 		
@@ -88,9 +81,8 @@ public class TestBunco {
 	
 	@Test
 	public void calculerScoreTour(){
-		Joueur unJoueur = new Joueur();
-		IStrategie uneStrategie = new Strategie(unJoueur);
-		Jeux unJeux = new Jeux(uneStrategie,DEFAULT_PLAYER_NUMBER);
+		IStrategie<Integer> uneStrategie = new Strategie();
+		Jeux<Integer> unJeux = new Jeux<Integer>(uneStrategie,DEFAULT_PLAYER_NUMBER);
 		Bunco unBunco = new Bunco();
 		unBunco.initialiserJeux(unJeux);
 		
@@ -103,8 +95,5 @@ public class TestBunco {
 		int leJoueur = unJeux.getJoueurs().obtenirJoueur(0).getPointsTours(1);
 		
 		assertTrue(leJoueur == 21);
-		
-		
 	}
-	
 }

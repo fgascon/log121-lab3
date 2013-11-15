@@ -19,58 +19,58 @@ import org.junit.*;
 
 public class TestJoueur {
 
-	private Joueur JoueurTesteur;
+	private Joueur joueurTesteur;
 	
 	@Before
 	public void faireAvant(){
-		JoueurTesteur = new Joueur();
+		joueurTesteur = new Joueur();
 	}
 	
 	@Test
 	public void testJoueur() {
-		assertEquals(0, JoueurTesteur.getPoints());
-		String[] numeroJoueur = (JoueurTesteur.getNom()).split("r");
-		JoueurTesteur = new Joueur();
-		assertEquals("Joueur"+(Integer.parseInt(numeroJoueur[1])+1), JoueurTesteur.getNom());
+		assertEquals(0, joueurTesteur.getPoints());
+		String[] numeroJoueur = (joueurTesteur.getNom()).split("r");
+		joueurTesteur = new Joueur();
+		assertEquals("Joueur"+(Integer.parseInt(numeroJoueur[1])+1), joueurTesteur.getNom());
 	}
 
 	@Test
 	public void testJoueurString() {
 		final String nomTest = "JoueurTesteur";
-		JoueurTesteur = new Joueur(nomTest);
-		assertEquals(nomTest, JoueurTesteur.getNom());
+		joueurTesteur = new Joueur(nomTest);
+		assertEquals(nomTest, joueurTesteur.getNom());
 	}
 
 	@Test
 	public void testSetPoints() {
 		final int pointsTest = 1;
-		JoueurTesteur.setPoints(pointsTest);
-		assertEquals(pointsTest, JoueurTesteur.getPoints());
+		joueurTesteur.setPoints(pointsTest);
+		assertEquals(pointsTest, joueurTesteur.getPoints());
 	}
 
 	@Test
 	public void testSetNom() {
 		final String nomTest = "LeJoueurTesteur";
-		JoueurTesteur.setNom(nomTest);
-		assertEquals(nomTest, JoueurTesteur.getNom());
+		joueurTesteur.setNom(nomTest);
+		assertEquals(nomTest, joueurTesteur.getNom());
 	}
 
 	@Test
 	public void testSetPointsTours() {
-		final int Tour = 1;
+		final int tour = 1;
 		final int pointsTour = 2;
-		JoueurTesteur.setPointsTours(pointsTour);
-		assertEquals(pointsTour, JoueurTesteur.getPointsTours(Tour));
+		joueurTesteur.setPointsTours(pointsTour);
+		assertEquals(pointsTour, joueurTesteur.getPointsTours(tour));
 	}
 
 	@Test
 	public void testCompareTo() {
 		final int petitPoints = 1;
 		final int grandPoints = 2;
-		Joueur JoueurTesteur2 = new Joueur();
-		JoueurTesteur.setPoints(petitPoints);
-		JoueurTesteur2.setPoints(grandPoints);
-		assertEquals(-1, JoueurTesteur.compareTo(JoueurTesteur2));
+		Joueur joueurTesteur2 = new Joueur();
+		joueurTesteur.setPoints(petitPoints);
+		joueurTesteur2.setPoints(grandPoints);
+		assertEquals(-1, joueurTesteur.compareTo(joueurTesteur2));
 	}
 
 }

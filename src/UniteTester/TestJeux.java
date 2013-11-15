@@ -25,7 +25,7 @@ public class TestJeux {
 	private static final int DEFAULT_SCORE_VALUE = 3456;
 	private static final int DEFAULT_JOUEUR_COUNT = 5;
 
-	private class TestJeuxStrategie implements IStrategie {
+	private class TestJeuxStrategie implements IStrategie<Integer> {
 
 		//public Joueur vainqueur;
 		public Joueur[] vainqueurTab;
@@ -35,17 +35,17 @@ public class TestJeux {
 		}
 		
 		@Override
-		public void initialiserJeux(Jeux jeux) {
+		public void initialiserJeux(Jeux<Integer> jeux) {
 			//jeux.getJoueurs().ajouterJoueur(vainqueur);
 		}
 
 		@Override
-		public Joueur[] calculerLeVainqueur(Jeux jeux) {
+		public Joueur[] calculerLeVainqueur(Jeux<Integer> jeux) {
 			return vainqueurTab;
 		}
 
 		@Override
-		public int calculerScoreTour(Jeux jeux) {
+		public int calculerScoreTour(Jeux<Integer> jeux) {
 			return DEFAULT_SCORE_VALUE;
 		}
 		
@@ -68,27 +68,27 @@ public class TestJeux {
 	}
 	
 	
-	private Jeux generateJeux() {
-		IStrategie strategie = new TestJeuxStrategie(vainqueur);
-		return new Jeux(strategie, DEFAULT_JOUEUR_COUNT);
+	private Jeux<Integer> generateJeux() {
+		IStrategie<Integer> strategie = new TestJeuxStrategie(vainqueur);
+		return new Jeux<Integer>(strategie, DEFAULT_JOUEUR_COUNT);
 	}
 
 	@Test
 	public void testGetDes() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		assertEquals("renvoie une CollectionDes", CollectionDes.class, jeux.getDes().getClass());
 	}
 
 	@Test
 	public void testGetJoueurs() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		assertEquals("renvoie une CollectionJoueurs", CollectionJoueurs.class, jeux.getJoueurs().getClass());
 		assertEquals("Il y a le bon nombre de joueurs", DEFAULT_JOUEUR_COUNT, jeux.getJoueurs().taille());
 	}
 
 	@Test
 	public void testNbTours() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		int nbTours;
 		for(int i=0; i<2; i++) {
 			nbTours = (int) Math.floor(Math.random()*30);
@@ -99,7 +99,7 @@ public class TestJeux {
 
 	@Test
 	public void testTourCourant() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		for(int tour=0; tour>5; tour++) {
 			assertEquals(tour, jeux.getTourCourant());
 			jeux.incrementeurTour();
@@ -108,13 +108,13 @@ public class TestJeux {
 
 	@Test
 	public void testCalculerScoreTour() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		assertEquals(DEFAULT_SCORE_VALUE, jeux.calculerScoreTour());
 	}
 
 	@Test
 	public void testCalculerLeVainqueur() {
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		assertEquals(vainqueur, jeux.calculerLeVainqueur());
 	}
 
@@ -122,11 +122,11 @@ public class TestJeux {
 	public void testBrasserDes() {
 		Integer[] listeFaces = {1,2,3,4,5,6};
 		De<Integer> unDe = new De<Integer>(listeFaces);
-		Jeux jeux = generateJeux();
+		Jeux<Integer> jeux = generateJeux();
 		jeux.getDes().ajouterDe(unDe);
 		jeux.brasserDes(); 
 		jeux.getDes().obtenirDe(0).getValeur();
-		//assertEquals(vainqueur, jeux.calculerLeVainqueur());
+		
 		assertTrue((Integer)jeux.getDes().obtenirDe(0).getValeur() != 0);
 		assertTrue(jeux.getDes().taille() != 0);
 	}

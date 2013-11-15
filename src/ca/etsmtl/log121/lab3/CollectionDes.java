@@ -14,15 +14,15 @@ package ca.etsmtl.log121.lab3;
 import java.util.ArrayList;
 
 
-public class CollectionDes implements Iterable<De> {
+public class CollectionDes<Type extends Comparable<Type>> implements Iterable<De<Type>> {
 
-	private ArrayList<De> list;
+	private ArrayList<De<Type>> list;
 
 	public CollectionDes() {
-		list = new ArrayList<De>();
+		list = new ArrayList<De<Type>>();
 	}
 	
-	public void ajouterDe(De de) {
+	public void ajouterDe(De<Type> de) {
 		list.add(de);
 	}
 	
@@ -30,13 +30,12 @@ public class CollectionDes implements Iterable<De> {
 		return list.size();
 	}
 	
-	public De obtenirDe(int index) {
+	public De<Type> obtenirDe(int index) {
 		return list.get(index);
 	}
 
 	@Override
-	public IterateurDes creerIterateur() {
-		return new IterateurDes(this);
+	public IterateurDes<Type> creerIterateur() {
+		return new IterateurDes<Type>(this);
 	}
-
 }
