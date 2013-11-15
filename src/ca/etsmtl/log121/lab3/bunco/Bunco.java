@@ -28,15 +28,14 @@ public class Bunco implements IStrategie {
 		jeux.setNbTours(6);
 		
 		CollectionDes des = jeux.getDes();
+		Integer[] listeFaces = {1,2,3,4,5,6};
 		for(int i=0; i<3; i++) {
-			des.ajouterDe(new De());
+			des.ajouterDe(new De<Integer>(listeFaces));
 		}
 	}
 
 	@Override
 	public Joueur[] calculerLeVainqueur(Jeux jeux) {
-		
-		
 		ComparateurJoueur unComparateur = new ComparateurJoueur();
 		
 		Joueur desJoueurs[] = jeux.getJoueurs().toArray();
@@ -57,13 +56,10 @@ public class Bunco implements IStrategie {
 		
 		ArrayList<Integer> desACompare = new ArrayList<Integer>();
 		
-		
 		for (int i=0; i < nbDeDes ;i++){
 			De leDe = jeux.getDes().obtenirDe(i);
 			resultatsDes[i] = (Integer) leDe.getValeur();	
 		}
-		
-		
 		
 		for (int i=0; i<nbDeDes;i++){
 			if (resultatsDes[i] == jeux.getTourCourant() ){

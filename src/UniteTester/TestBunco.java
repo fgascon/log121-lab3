@@ -39,7 +39,6 @@ public class TestBunco {
 
 		@Override
 		public Joueur[] calculerLeVainqueur(Jeux jeux) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 	}

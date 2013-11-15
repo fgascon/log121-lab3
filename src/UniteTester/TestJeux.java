@@ -31,7 +31,7 @@ public class TestJeux {
 		public Joueur[] vainqueurTab;
 		
 		public TestJeuxStrategie(Joueur vainqueur) {
-		//a	this.vainqueur = vainqueur;
+			//a	this.vainqueur = vainqueur;
 		}
 		
 		@Override
@@ -120,7 +120,8 @@ public class TestJeux {
 
 	@Test
 	public void testBrasserDes() {
-		De unDe = new De();
+		Integer[] listeFaces = {1,2,3,4,5,6};
+		De<Integer> unDe = new De<Integer>(listeFaces);
 		Jeux jeux = generateJeux();
 		jeux.getDes().ajouterDe(unDe);
 		jeux.brasserDes(); 
@@ -128,7 +129,6 @@ public class TestJeux {
 		//assertEquals(vainqueur, jeux.calculerLeVainqueur());
 		assertTrue((Integer)jeux.getDes().obtenirDe(0).getValeur() != 0);
 		assertTrue(jeux.getDes().taille() != 0);
-		//fail("Not yet implemented");
 	}
 
 }

@@ -58,11 +58,11 @@ public class Joueur implements Comparable<Joueur> {
 
 	@Override
 	public int compareTo(Joueur autreJoueur){ 
-		if (this.getPoints()== autreJoueur.getPoints())
-		return 0;
+		if (this.getPoints() == autreJoueur.getPoints())
+			return 0;
 		else if (this.getPoints() > autreJoueur.getPoints())
-		return 1;
+			return 1;
 		else
-		return -1;
+			return -1;
 	}
 }
