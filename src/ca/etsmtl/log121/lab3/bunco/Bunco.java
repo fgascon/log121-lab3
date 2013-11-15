@@ -57,7 +57,7 @@ public class Bunco implements IStrategie {
 		ArrayList<Integer> desACompare = new ArrayList<Integer>();
 		
 		for (int i=0; i < nbDeDes ;i++){
-			De leDe = jeux.getDes().obtenirDe(i);
+			De<Integer> leDe = (De<Integer>)jeux.getDes().obtenirDe(i);
 			resultatsDes[i] = (Integer) leDe.getValeur();	
 		}
 		
@@ -67,14 +67,13 @@ public class Bunco implements IStrategie {
 			}
 		}
 		
-		
 		if (desACompare.size() == 3){
 			scoreAccumule = 21;
 		}else if(desACompare.size() == 2){
 			scoreAccumule = jeux.getTourCourant() * 2;
 		}else if(desACompare.size() == 1) {
 			scoreAccumule = jeux.getTourCourant();
-		}else if(resultatsDes[0]== resultatsDes[1] && resultatsDes[1] == resultatsDes[2]){
+		}else if(resultatsDes[0] == resultatsDes[1] && resultatsDes[1] == resultatsDes[2]){
 			scoreAccumule = 5;
 		}
 		
