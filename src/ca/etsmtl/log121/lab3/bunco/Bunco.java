@@ -15,24 +15,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import ca.etsmtl.log121.lab3.CollectionDes;
 import ca.etsmtl.log121.lab3.De;
 import ca.etsmtl.log121.lab3.IStrategie;
 import ca.etsmtl.log121.lab3.Jeux;
 import ca.etsmtl.log121.lab3.Joueur;
 
 public class Bunco implements IStrategie<Integer> {
-	
-	@Override
-	public void initialiserJeux(Jeux<Integer> jeux) {
-		jeux.setNbTours(6);
-		
-		CollectionDes<Integer> des = jeux.getDes();
-		Integer[] listeFaces = {1,2,3,4,5,6};
-		for(int i=0; i<3; i++) {
-			des.ajouterDe(new De<Integer>(listeFaces));
-		}
-	}
 
 	@Override
 	public Joueur[] calculerLeVainqueur(Jeux<Integer> jeux) {

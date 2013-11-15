@@ -15,8 +15,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import ca.etsmtl.log121.lab3.CollectionDes;
+import ca.etsmtl.log121.lab3.De;
 //import UniteTester.TestBunco.Strategie;
 import ca.etsmtl.log121.lab3.IStrategie;
+import ca.etsmtl.log121.lab3.Jeux;
 
 import ca.etsmtl.log121.lab3.*;
 
@@ -26,17 +29,11 @@ public class TestJeux {
 	private static final int DEFAULT_JOUEUR_COUNT = 5;
 
 	private class TestJeuxStrategie implements IStrategie<Integer> {
-
-		//public Joueur vainqueur;
+		
 		public Joueur[] vainqueurTab;
 		
-		public TestJeuxStrategie(Joueur vainqueur) {
-			//a	this.vainqueur = vainqueur;
-		}
-		
-		@Override
-		public void initialiserJeux(Jeux<Integer> jeux) {
-			//jeux.getJoueurs().ajouterJoueur(vainqueur);
+		public TestJeuxStrategie(Joueur[] vainqueurTab) {
+			this.vainqueurTab = vainqueurTab;
 		}
 
 		@Override
@@ -48,10 +45,22 @@ public class TestJeux {
 		public int calculerScoreTour(Jeux<Integer> jeux) {
 			return DEFAULT_SCORE_VALUE;
 		}
-		
 	}
 	
-	private Joueur vainqueur;
+	public class TestDeFactory implements DeFactory<Integer>{
+
+		@Override
+		public CollectionDes<Integer> generateDes() {
+			CollectionDes<Integer> des = new CollectionDes<Integer>();
+			Integer[] listeFaces = {1,2,3,4,5,6};
+			for(int i=0; i<3; i++) {
+				des.ajouterDe(new De<Integer>(listeFaces));
+			}
+			return des;
+		}
+	}
+	
+	private Joueur[] vainqueurTab;
 	
 	@Test
 	public void TestdeJeux() {
@@ -69,8 +78,9 @@ public class TestJeux {
 	
 	
 	private Jeux<Integer> generateJeux() {
-		IStrategie<Integer> strategie = new TestJeuxStrategie(vainqueur);
-		return new Jeux<Integer>(strategie, DEFAULT_JOUEUR_COUNT);
+		TestJeuxStrategie strategie = new TestJeuxStrategie(vainqueurTab);
+		TestDeFactory deFactory = new TestDeFactory();
+		return new Jeux<Integer>(strategie, deFactory, DEFAULT_JOUEUR_COUNT);
 	}
 
 	@Test
@@ -115,7 +125,7 @@ public class TestJeux {
 	@Test
 	public void testCalculerLeVainqueur() {
 		Jeux<Integer> jeux = generateJeux();
-		assertEquals(vainqueur, jeux.calculerLeVainqueur());
+		assertArrayEquals(vainqueurTab, jeux.calculerLeVainqueur());
 	}
 
 	@Test

@@ -21,27 +21,26 @@ public class Jeux<Type extends Comparable<Type>> {
 	private int tourCourant;
 	private Iterateur<Joueur> joueurCourant;
 
-	public Jeux(IStrategie<Type> typeDeJeux, int nbJoueurs) {
-		this(typeDeJeux);
+	public Jeux(IStrategie<Type> typeDeJeux, DeFactory<Type> desFactory, int nbJoueurs) {
+		this(typeDeJeux, desFactory);
 		for(int i=0; i<nbJoueurs; i++) {
 			joueurs.ajouterJoueur(new Joueur());
 		}
 	}
 
-	public Jeux(IStrategie<Type> typeDeJeux, String[] nomsJoueurs) {
-		this(typeDeJeux);
+	public Jeux(IStrategie<Type> typeDeJeux, DeFactory<Type> desFactory, String[] nomsJoueurs) {
+		this(typeDeJeux, desFactory);
 		for(int i=0; i<nomsJoueurs.length; i++) {
 			joueurs.ajouterJoueur(new Joueur(nomsJoueurs[i]));
 		}
 	}
 
-	public Jeux(IStrategie<Type> typeDeJeux) {
+	public Jeux(IStrategie<Type> typeDeJeux, DeFactory<Type> desFactory) {
 		this.typeDeJeux = typeDeJeux;
-		des = new CollectionDes<Type>();
+		this.des = desFactory.generateDes();
 		joueurs = new CollectionJoueurs();
 		tourCourant = 1;
 		joueurCourant = joueurs.creerIterateur();
-		typeDeJeux.initialiserJeux(this);
 	}
 
 	public CollectionDes<Type> getDes() {
